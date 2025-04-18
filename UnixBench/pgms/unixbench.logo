@@ -6,8 +6,7 @@
    #    #  #   ##  #   #  #           #    #  #       #   ##  #    #  #    #
     ####   #    #  #  #    #          #####   ######  #    #   ####   #    #
 
-   
-   Version 5.1.6                      Change getpid method to syscall
+   Version 5.1.7                      Based on the Byte Magazine Unix Benchmark
 
    Multi-CPU version                  Version 5 revisions by Ian Smith,
                                       Sunnyvale, CA, USA
