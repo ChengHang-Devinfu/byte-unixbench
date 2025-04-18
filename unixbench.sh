@@ -38,6 +38,19 @@ fi
 tar -zxvf UnixBench-5.1.6.tar.gz && rm -f UnixBench-5.1.6.tar.gz
 cd UnixBench-5.1.6/UnixBench
 
+# 适配intel SPR/EMR等CPU型号无法识别march/mtune等问题出现的性能回退
+cpu_model=`lscpu | grep 'Model:' | awk '{print $2}'`
+gcc_version=$(gcc --version | head -n 1 | awk '{print $3}')
+major_version=$(echo $gcc_version | cut -d'.' -f1)
+# 判断 GCC 版本是否大于 5
+if [[ ${cpu_model} == 143 ]] || [[ ${cpu_model} == 207 ]]; then
+    if (( $major_version > 5 )); then
+        sed -i 's/OPTON += -march=native -mtune=native/OPTON += -march=icelake-server -mtune=icelake-server/g' Makefile
+    else
+        sed -i 's/OPTON += -march=native -mtune=native/OPTON += -march=core-avx2 -mtune=core-avx2/g' Makefile
+    fi
+fi
+
 #Run unixbench
 make
 ./Run
