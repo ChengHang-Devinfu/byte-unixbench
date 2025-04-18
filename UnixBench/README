@@ -1,4 +1,4 @@
-Version 5.1.6 -- 2021-01-08
+Version 5.1.7 -- 2025-04-18
 
 ================================================================
 To use Unixbench:
@@ -27,6 +27,14 @@ For information on adding tests into the benchmark, see "WRITING_TESTS".
 
 ===================== RELEASE NOTES =====================================
 
+v5.1.7
+Fixed the issue where unixbench couldn't recognize march/mtune on Intel SPR
+processors, leading to performance degradation.
+
+The current aliyun branch has not been updated for 4 years and has
+approximately 20 commits of difference compared to the community. Therefore,
+a synchronization update is being performed.
+
 v5.1.6
 Optimize syscall.c: Change getpid method to syscall
 According to http://man7.org/linux/man-pages/man2/getpid.2.html:
@@ -40,7 +48,6 @@ getpid(). Directly call syscall(SYS_getpid) is more appropriate.
 
 From glibc version 2.25, cached pid is removed to fix some bugs which
 makes the testsuite wrongly report performance regression on system call.
-
 
 
 v5.1.5
