@@ -312,7 +312,7 @@ structions
  void pa(SPDP e[4], SPDP t, SPDP t2);
  void po(SPDP e1[4], long j, long k, long l);
  void p3(SPDP *x, SPDP *y, SPDP *z, SPDP t, SPDP t1, SPDP t2);
- void pout(char title[22], float ops, int type, SPDP checknum,
+ void pout(char title[18], float ops, int type, SPDP checknum,
 		  SPDP time, int calibrate, int section);
 
 
@@ -747,7 +747,6 @@ char	*argv[];
 	 {
 	    for (ix=0; ix<xtra; ix++)
 	      {
-		x = 0.75;
 		for(i=0; i<n8; i++)
 		  {
 		     x = sqrt(exp(log(x)/t1));
